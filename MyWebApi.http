@@ -1,0 +1,12 @@
+@MyWebApi_HostAddress = http://localhost:5209
+
+GET {{MyWebApi_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
+
+### Get all employees
+GET {{MyWebApi_HostAddress}}/api/employees
+Accept: application/json
+
+###
