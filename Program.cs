@@ -72,7 +72,7 @@ builder.Services.AddAuthorization();
 
 builder.Services.AddCors(options =>
 {
-    options.AddPolicy("AngularClient", policy =>
+    options.AddPolicy("Employee-Portal", policy =>
     {
         policy.WithOrigins("http://localhost:4200")
               .AllowAnyHeader()
@@ -93,6 +93,7 @@ if (app.Environment.IsDevelopment())
 }
 app.UseMiddleware<RequestLoggingMiddleware>();
 app.UseHttpsRedirection();
+app.UseCors("Employee-Portal");
 app.UseAuthentication();
 app.UseAuthorization();
 
