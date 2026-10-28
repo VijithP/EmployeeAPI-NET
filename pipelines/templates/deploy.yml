@@ -1,0 +1,20 @@
+
+parameters:
+  - name: azureServiceConnection
+    type: string
+
+  - name: appName
+    type: string
+
+steps:
+  - download: current
+    artifact: drop
+    displayName: 'Download build artifact'
+
+  - task: AzureWebApp@1
+    displayName: 'Deploy .NET API to Azure App Service'
+    inputs:
+      azureSubscription: ${{ parameters.azureServiceConnection }}
+      appType: 'webApp'
+      appName: ${{ parameters.appName }}
+      package: '$(Pipeline.Workspace)/drop/EmployeeApi.zip'
