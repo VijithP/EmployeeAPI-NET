@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\MyProject\\EmployeePortal-NetApi\\MyWebApi\\MyWebApi.csproj": {}
+    "C:\\MyProject\\EmployeePortal-NetApi\\EmployeePortal.Api\\EmployeePortal.Api.csproj": {}
   },
   "projects": {
-    "C:\\MyProject\\EmployeePortal-NetApi\\MyWebApi\\MyWebApi.csproj": {
+    "C:\\MyProject\\EmployeePortal-NetApi\\EmployeePortal.Api\\EmployeePortal.Api.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\MyProject\\EmployeePortal-NetApi\\MyWebApi\\MyWebApi.csproj",
-        "projectName": "MyWebApi",
-        "projectPath": "C:\\MyProject\\EmployeePortal-NetApi\\MyWebApi\\MyWebApi.csproj",
+        "projectUniqueName": "C:\\MyProject\\EmployeePortal-NetApi\\EmployeePortal.Api\\EmployeePortal.Api.csproj",
+        "projectName": "EmployeePortal.Api",
+        "projectPath": "C:\\MyProject\\EmployeePortal-NetApi\\EmployeePortal.Api\\EmployeePortal.Api.csproj",
         "packagesPath": "C:\\Users\\vijith.pv\\.nuget\\packages\\",
-        "outputPath": "C:\\MyProject\\EmployeePortal-NetApi\\MyWebApi\\obj\\",
+        "outputPath": "C:\\MyProject\\EmployeePortal-NetApi\\EmployeePortal.Api\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

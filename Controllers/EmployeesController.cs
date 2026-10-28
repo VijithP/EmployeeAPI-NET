@@ -1,11 +1,11 @@
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using MyWebApi.Models;
-using MyWebApi.Services;
+using EmployeePortal.Api.Models;
+using EmployeePortal.Api.Services;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 
-namespace MyWebApi.Controllers;
+namespace EmployeePortal.Api.Controllers;
 
 
 [ApiController]

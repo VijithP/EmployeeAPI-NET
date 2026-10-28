@@ -1,6 +1,6 @@
-using MyWebApi.Models;
+using EmployeePortal.Api.Models;
 
-namespace MyWebApi.Services;
+namespace EmployeePortal.Api.Services;
 
 public interface IEmployeeService
 {

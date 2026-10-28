@@ -1,5 +1,5 @@
-using MyWebApi.Middleware;
-using MyWebApi.Services;
+using EmployeePortal.Api.Middleware;
+using EmployeePortal.Api.Services;
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
 using Microsoft.OpenApi;

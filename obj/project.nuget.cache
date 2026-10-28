@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "viOBEPNvy2Q=",
+  "dgSpecHash": "DKC9hW834SU=",
   "success": true,
-  "projectFilePath": "C:\\MyProject\\EmployeePortal-NetApi\\MyWebApi\\MyWebApi.csproj",
+  "projectFilePath": "C:\\MyProject\\EmployeePortal-NetApi\\EmployeePortal.Api\\EmployeePortal.Api.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\vijith.pv\\.nuget\\packages\\microsoft.aspnetcore.authentication.jwtbearer\\10.0.13\\microsoft.aspnetcore.authentication.jwtbearer.10.0.13.nupkg.sha512",
     "C:\\Users\\vijith.pv\\.nuget\\packages\\microsoft.aspnetcore.openapi\\10.0.13\\microsoft.aspnetcore.openapi.10.0.13.nupkg.sha512",

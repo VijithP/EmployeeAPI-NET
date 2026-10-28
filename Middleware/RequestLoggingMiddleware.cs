@@ -1,6 +1,6 @@
 using System.Diagnostics;
 
-namespace MyWebApi.Middleware;
+namespace EmployeePortal.Api.Middleware;
 
 public class RequestLoggingMiddleware
 {

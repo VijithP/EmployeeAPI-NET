@@ -4,7 +4,7 @@ using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Text;
 
-namespace  MyWebApi.Controllers;
+namespace  EmployeePortal.Api.Controllers;
 
 public record LoginRequest(string Email, string Password);
 
