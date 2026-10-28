@@ -130,3 +130,4 @@ c:\MyProject\EmployeePortal-NetApi\EmployeePortal.Api.Tests\obj\Debug\net10.0\re
 c:\MyProject\EmployeePortal-NetApi\EmployeePortal.Api.Tests\obj\Debug\net10.0\EmployeePortal.Api.Tests.pdb
 c:\MyProject\EmployeePortal-NetApi\EmployeePortal.Api.Tests\obj\Debug\net10.0\EmployeePortal.Api.Tests.genruntimeconfig.cache
 c:\MyProject\EmployeePortal-NetApi\EmployeePortal.Api.Tests\obj\Debug\net10.0\ref\EmployeePortal.Api.Tests.dll
+C:\MyProject\EmployeePortal-NetApi\EmployeePortal.Api.Tests\obj\Debug\net10.0\EmployeePortal.Api.Tests.sourcelink.json
