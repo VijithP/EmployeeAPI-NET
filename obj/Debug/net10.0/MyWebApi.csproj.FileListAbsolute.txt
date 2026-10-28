@@ -125,3 +125,15 @@ C:\MyProject\Api\MyWebApi\obj\employee-build-check\Swashbuckle.AspNetCore.Swagge
 C:\MyProject\Api\MyWebApi\obj\employee-build-check\Swashbuckle.AspNetCore.SwaggerUI.dll
 C:\MyProject\Api\MyWebApi\obj\employee-build-check\System.IdentityModel.Tokens.Jwt.dll
 C:\MyProject\Api\MyWebApi\obj\employee-build-check\YamlDotNet.dll
+c:\MyProject\Api\MyWebApi\bin\Debug\net10.0\tests\MyWebApi.Api.Tests\obj\MyWebApi.csproj.nuget.dgspec.json
+c:\MyProject\Api\MyWebApi\bin\Debug\net10.0\tests\MyWebApi.Api.Tests\obj\project.assets.json
+C:\MyProject\Api\MyWebApi\bin\Debug\net10.0\tests\MyWebApi.Api.Tests\bin\Debug\net10.0\appsettings.Development.json
+C:\MyProject\Api\MyWebApi\bin\Debug\net10.0\tests\MyWebApi.Api.Tests\bin\Debug\net10.0\appsettings.json
+C:\MyProject\Api\MyWebApi\bin\Debug\net10.0\tests\MyWebApi.Api.Tests\bin\Debug\net10.0\MyWebApi.Api.Tests.deps.json
+C:\MyProject\Api\MyWebApi\bin\Debug\net10.0\tests\MyWebApi.Api.Tests\bin\Debug\net10.0\MyWebApi.Api.Tests.runtimeconfig.json
+C:\MyProject\Api\MyWebApi\bin\Debug\net10.0\tests\MyWebApi.Api.Tests\bin\Debug\net10.0\MyWebApi.deps.json
+C:\MyProject\Api\MyWebApi\bin\Debug\net10.0\tests\MyWebApi.Api.Tests\bin\Debug\net10.0\MyWebApi.runtimeconfig.json
+C:\MyProject\Api\MyWebApi\bin\Debug\net10.0\tests\MyWebApi.Api.Tests\bin\Debug\net10.0\MyWebApi.staticwebassets.endpoints.json
+C:\MyProject\Api\MyWebApi\bin\Debug\net10.0\tests\MyWebApi.Api.Tests\bin\Debug\net10.0\tests\MyWebApi.Api.Tests\obj\MyWebApi.csproj.nuget.dgspec.json
+C:\MyProject\Api\MyWebApi\bin\Debug\net10.0\tests\MyWebApi.Api.Tests\bin\Debug\net10.0\tests\MyWebApi.Api.Tests\obj\project.assets.json
+C:\MyProject\Api\MyWebApi\bin\Debug\net10.0\tests\MyWebApi.Api.Tests\obj\Debug\net10.0\MyWebApi.sourcelink.json
