@@ -1,45 +1,80 @@
-# EmployeePortal.Api
+# Employee Portal API
 
-An ASP.NET Core 10 Web API sample demonstrating JWT bearer authentication, protected employee endpoints, and a public weather forecast endpoint.
+An ASP.NET Core 10 Web API for employee management. The solution uses a clean-architecture-style separation of concerns, JWT bearer authentication, SQL Server persistence, a repository pattern, and a SQL connection factory.
+
+## Features
+
+- JWT bearer token creation and validation.
+- Authenticated employee endpoints to list employees, retrieve one employee, and create an employee.
+- SQL Server data access through parameterized ADO.NET queries.
+- Separate API, application, domain, and infrastructure projects.
+- Swagger UI in the Development environment.
+
+> **CRUD status:** Employee creation and read operations are implemented. Update (`PUT`/`PATCH`) and delete (`DELETE`) endpoints are not currently implemented.
 
 ## Requirements
 
 - .NET 10 SDK
+- SQL Server (local or remote)
 
-## Run the API
+## Architecture
 
-The development launch profile uses `http://localhost:5209` and opens Swagger UI at `/swagger`.
+The projects separate HTTP concerns, application logic, domain rules, and persistence:
 
-The application requires a JWT signing key and JWT issuer and audience configuration. For local development, configure them with .NET user secrets instead of committing a real key:
+| Project | Responsibility |
+| --- | --- |
+| `EmployeePortal.Api` | Controllers, JWT authentication/authorization, Swagger, middleware, and dependency registration. |
+| `Employee-Portal.Application` | Employee use cases, service/repository interfaces, request and response DTOs. |
+| `Employee-Portal.Domain` | The `Employee` entity and its creation/validation rules. |
+| `Employee-Portal.Infrastructure` | SQL Server connection creation, SQL repository implementation, and infrastructure registrations. |
+
+The API calls the application service; the application depends on the repository interface, and infrastructure provides its SQL Server implementation. The domain project has no dependency on the API or infrastructure.
+
+`EmployeeRepository` implements the repository pattern. `SqlConnectionFactory` encapsulates creation of SQL Server connections from the configured `EmployeeDb` connection string. Infrastructure registers the factory and repository with dependency injection.
+
+## Configure and run
+
+### Configure secrets and the database connection
+
+Set these values using .NET user secrets during local development. Run the commands from the repository root:
 
 ```powershell
-dotnet user-secrets init
-dotnet user-secrets set "Jwt:SecretKey" "<a-random-secret-of-at-least-32-bytes>"
-dotnet user-secrets set "Jwt:Issuer" "EmployeePortal.Api"
-dotnet user-secrets set "Jwt:Audience" "EmployeePortal.ApiClient"
-dotnet user-secrets set "Jwt:ExpiryMinutes" "15"
+dotnet user-secrets init --project EmployeePortal.Api
+dotnet user-secrets set "Jwt:SecretKey" "<a-random-secret-of-at-least-32-bytes>" --project EmployeePortal.Api
+dotnet user-secrets set "Jwt:Issuer" "JwtAuthApi" --project EmployeePortal.Api
+dotnet user-secrets set "Jwt:Audience" "AngularEmployeeApp" --project EmployeePortal.Api
+dotnet user-secrets set "Jwt:ExpiryMinutes" "15" --project EmployeePortal.Api
+dotnet user-secrets set "ConnectionStrings:EmployeeDb" "Server=localhost;Database=EmployeeDb;Trusted_Connection=True;TrustServerCertificate=True" --project EmployeePortal.Api
 ```
 
-Run the project from its directory:
+Use the connection string appropriate for your SQL Server installation. The checked-in `appsettings.json` contains a local Windows-authentication connection string and a placeholder JWT key; replace these values through user secrets or environment variables. Do not commit real signing keys or production credentials.
+
+The API expects a database named `EmployeeDb` and a table with the following schema. Create the database first if it does not exist, then run this table definition in that database:
+
+```sql
+CREATE TABLE dbo.Employees
+(
+    Id INT IDENTITY(1,1) NOT NULL PRIMARY KEY,
+    Name NVARCHAR(100) NOT NULL,
+    Email NVARCHAR(256) NOT NULL,
+    Salary DECIMAL(18,2) NOT NULL
+);
+```
+
+### Start the API
+
+From the repository root:
 
 ```powershell
-dotnet run
+dotnet build EmployeePortal.Api\EmployeePortal.Api.csproj
+dotnet run --project EmployeePortal.Api\EmployeePortal.Api.csproj
 ```
 
-Alternatively, build first:
+The HTTP launch profile listens at `http://localhost:5209`. In Development, Swagger UI is available at [http://localhost:5209/swagger](http://localhost:5209/swagger).
 
-```powershell
-dotnet build
-dotnet run
-```
+## Authentication
 
-Do not use the sample login credentials or a development signing key in production. Replace the demo login with real user validation and configure a strong signing key through a secure production secret provider.
-
-## JWT authentication
-
-### Get an access token
-
-Send a `POST` request to `/api/auth/login` with JSON credentials:
+`POST /api/auth/login` issues a signed JWT. **The current login is demo-only**: it accepts the hard-coded credentials below and does not validate users against the database.
 
 ```http
 POST http://localhost:5209/api/auth/login
@@ -51,50 +86,56 @@ Content-Type: application/json
 }
 ```
 
-The current login endpoint is **demo-only** and accepts the credentials shown above. It returns an `accessToken` and its UTC expiration time. The token contains subject, email, name, and role claims. Invalid credentials return `401 Unauthorized`.
+A successful response contains `accessToken` and `expiresAtUtc`. The token includes subject, email, name, and role claims. Invalid credentials return `401 Unauthorized`.
 
-### Call a protected endpoint
-
-Include the token in the `Authorization` header:
+Pass the token as a bearer token when calling protected employee endpoints:
 
 ```http
 GET http://localhost:5209/api/employees
 Authorization: Bearer <access-token>
-Accept: application/json
 ```
 
-To use Swagger UI, open [http://localhost:5209/swagger](http://localhost:5209/swagger), call the login endpoint, copy the returned `accessToken`, and select **Authorize**. Paste the token only; Swagger adds the `Bearer` prefix. Requests without a valid token to protected endpoints return `401 Unauthorized`.
+Swagger's **Authorize** dialog accepts the token without the `Bearer ` prefix. Token validation checks the configured issuer, audience, signing key, and expiration.
+
+> Replace the demo login with real user authentication and use a secure secret provider before deploying this API.
 
 ## API endpoints
 
 | Method | Route | Authentication | Description |
 | --- | --- | --- | --- |
-| `POST` | `/api/auth/login` | Public | Validate demo credentials and issue a JWT |
-| `GET` | `/api/employees` | Bearer token required | Return the sample employee list |
-| `GET` | `/api/employees/me` | Bearer token required | Return the authenticated user's ID, email, and authentication status |
-| `GET` | `/WeatherForecast` | Public | Return a sample five-day weather forecast |
+| `POST` | `/api/auth/login` | Public | Validate demo credentials and issue a JWT. |
+| `GET` | `/api/employees` | JWT required | Return all employees from SQL Server. |
+| `GET` | `/api/employees/{id}` | JWT required | Return one employee, or `404 Not Found` if it does not exist. |
+| `POST` | `/api/employees` | JWT required | Create an employee and return `201 Created`. |
+| `GET` | `/api/employees/me` | JWT required | Return the authenticated user's ID, email, and authentication status. |
+| `GET` | `/WeatherForecast` | Public | Return a sample five-day forecast. |
 
-Employee records are currently stored in memory in `EmployeeService`; this is sample data, not database-backed persistence.
+Example create request:
+
+```http
+POST http://localhost:5209/api/employees
+Authorization: Bearer <access-token>
+Content-Type: application/json
+
+{
+  "name": "Ava Patel",
+  "email": "ava.patel@example.com",
+  "salary": 75000.00
+}
+```
+
+The create request requires a name of 2–100 characters, a valid email address, and a salary greater than zero and no more than `100000000`. The API returns the created employee with its database-generated ID.
 
 ## Configuration
 
-JWT settings are read from the `Jwt` configuration section:
+Settings are read from standard ASP.NET Core configuration sources. Environment variables use double underscores in place of `:`:
 
 | Setting | Purpose |
 | --- | --- |
-| `SecretKey` | HMAC signing key used to issue and validate tokens |
-| `Issuer` | Expected token issuer |
-| `Audience` | Expected token audience |
-| `ExpiryMinutes` | Token lifetime in minutes; the login endpoint defaults to `15` if this value is omitted |
+| `Jwt__SecretKey` | HMAC signing and validation key; use a random secret of at least 32 bytes. |
+| `Jwt__Issuer` | Issuer written to and expected in JWTs. |
+| `Jwt__Audience` | Audience written to and expected in JWTs. |
+| `Jwt__ExpiryMinutes` | JWT lifetime in minutes; defaults to `15` when omitted during token creation. |
+| `ConnectionStrings__EmployeeDb` | SQL Server connection string used by the connection factory. |
 
-ASP.NET Core configuration supports environment variables using double underscores, for example `Jwt__Issuer` and `Jwt__Audience`. Keep real signing keys out of source control and logs.
-
-## Project structure
-
-- `Controllers/AuthController.cs` — demo login and JWT creation.
-- `Controllers/EmployeesController.cs` — authenticated employee and current-user endpoints.
-- `Controllers/WeatherForecastController.cs` — public sample forecast endpoint.
-- `Services/` — employee service interface and in-memory implementation.
-- `Models/EmployeeResponse.cs` — employee response model.
-- `Middleware/RequestLoggingMiddleware.cs` — request and response logging.
-- `Program.cs` — service registration, JWT validation, Swagger, and middleware pipeline.
+The configured CORS policy permits the `http://localhost:4200` frontend origin.

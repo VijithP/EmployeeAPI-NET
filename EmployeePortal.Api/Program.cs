@@ -1,9 +1,11 @@
 using EmployeePortal.Api.Middleware;
-using EmployeePortal.Api.Services;
+using Employee_Portal.Application.Interfaces;
+using Employee_Portal.Application.Services;
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
 using Microsoft.OpenApi;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Employee_Portal.Infrastructure;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -12,6 +14,8 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddOpenApi();
 builder.Services.AddControllers();
 builder.Services.AddScoped<IEmployeeService, EmployeeService>();
+
+builder.Services.AddInfrastructure(builder.Configuration);
 
 //region swagger auth
 builder.Services.AddSwaggerGen(options =>

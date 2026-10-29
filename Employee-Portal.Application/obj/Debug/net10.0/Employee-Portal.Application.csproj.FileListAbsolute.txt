@@ -1,0 +1,16 @@
+C:\MyProject\EmployeePortal-NetApi\Employee-Portal.Application\bin\Debug\net10.0\Employee-Portal.Application.deps.json
+C:\MyProject\EmployeePortal-NetApi\Employee-Portal.Application\bin\Debug\net10.0\Employee-Portal.Application.dll
+C:\MyProject\EmployeePortal-NetApi\Employee-Portal.Application\bin\Debug\net10.0\Employee-Portal.Application.pdb
+C:\MyProject\EmployeePortal-NetApi\Employee-Portal.Application\bin\Debug\net10.0\Employee-Portal.Domain.dll
+C:\MyProject\EmployeePortal-NetApi\Employee-Portal.Application\bin\Debug\net10.0\Employee-Portal.Domain.pdb
+C:\MyProject\EmployeePortal-NetApi\Employee-Portal.Application\obj\Debug\net10.0\Employee-Portal.Application.csproj.AssemblyReference.cache
+C:\MyProject\EmployeePortal-NetApi\Employee-Portal.Application\obj\Debug\net10.0\Employee-Portal.Application.GeneratedMSBuildEditorConfig.editorconfig
+C:\MyProject\EmployeePortal-NetApi\Employee-Portal.Application\obj\Debug\net10.0\Employee-Portal.Application.AssemblyInfoInputs.cache
+C:\MyProject\EmployeePortal-NetApi\Employee-Portal.Application\obj\Debug\net10.0\Employee-Portal.Application.AssemblyInfo.cs
+C:\MyProject\EmployeePortal-NetApi\Employee-Portal.Application\obj\Debug\net10.0\Employee-Portal.Application.csproj.CoreCompileInputs.cache
+C:\MyProject\EmployeePortal-NetApi\Employee-Portal.Application\obj\Debug\net10.0\Employee-Portal.Application.sourcelink.json
+C:\MyProject\EmployeePortal-NetApi\Employee-Portal.Application\obj\Debug\net10.0\Employee.1484C70E.Up2Date
+C:\MyProject\EmployeePortal-NetApi\Employee-Portal.Application\obj\Debug\net10.0\Employee-Portal.Application.dll
+C:\MyProject\EmployeePortal-NetApi\Employee-Portal.Application\obj\Debug\net10.0\refint\Employee-Portal.Application.dll
+C:\MyProject\EmployeePortal-NetApi\Employee-Portal.Application\obj\Debug\net10.0\Employee-Portal.Application.pdb
+C:\MyProject\EmployeePortal-NetApi\Employee-Portal.Application\obj\Debug\net10.0\ref\Employee-Portal.Application.dll

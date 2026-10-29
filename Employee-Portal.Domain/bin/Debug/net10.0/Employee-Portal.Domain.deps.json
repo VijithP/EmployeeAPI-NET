@@ -1,0 +1,23 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v10.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v10.0": {
+      "Employee-Portal.Domain/1.0.0": {
+        "runtime": {
+          "Employee-Portal.Domain.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "Employee-Portal.Domain/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}

@@ -1,0 +1,12 @@
+C:\MyProject\EmployeePortal-NetApi\Employee-Portal.Domain\bin\Debug\net10.0\Employee-Portal.Domain.deps.json
+C:\MyProject\EmployeePortal-NetApi\Employee-Portal.Domain\bin\Debug\net10.0\Employee-Portal.Domain.dll
+C:\MyProject\EmployeePortal-NetApi\Employee-Portal.Domain\bin\Debug\net10.0\Employee-Portal.Domain.pdb
+C:\MyProject\EmployeePortal-NetApi\Employee-Portal.Domain\obj\Debug\net10.0\Employee-Portal.Domain.GeneratedMSBuildEditorConfig.editorconfig
+C:\MyProject\EmployeePortal-NetApi\Employee-Portal.Domain\obj\Debug\net10.0\Employee-Portal.Domain.AssemblyInfoInputs.cache
+C:\MyProject\EmployeePortal-NetApi\Employee-Portal.Domain\obj\Debug\net10.0\Employee-Portal.Domain.AssemblyInfo.cs
+C:\MyProject\EmployeePortal-NetApi\Employee-Portal.Domain\obj\Debug\net10.0\Employee-Portal.Domain.csproj.CoreCompileInputs.cache
+C:\MyProject\EmployeePortal-NetApi\Employee-Portal.Domain\obj\Debug\net10.0\Employee-Portal.Domain.sourcelink.json
+C:\MyProject\EmployeePortal-NetApi\Employee-Portal.Domain\obj\Debug\net10.0\Employee-Portal.Domain.dll
+C:\MyProject\EmployeePortal-NetApi\Employee-Portal.Domain\obj\Debug\net10.0\refint\Employee-Portal.Domain.dll
+C:\MyProject\EmployeePortal-NetApi\Employee-Portal.Domain\obj\Debug\net10.0\Employee-Portal.Domain.pdb
+C:\MyProject\EmployeePortal-NetApi\Employee-Portal.Domain\obj\Debug\net10.0\ref\Employee-Portal.Domain.dll
