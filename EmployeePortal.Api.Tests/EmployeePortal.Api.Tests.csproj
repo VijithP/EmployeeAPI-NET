@@ -1,5 +1,4 @@
 <Project Sdk="Microsoft.NET.Sdk">
-
   <PropertyGroup>
     <AssemblyName>EmployeePortal.Api.Tests</AssemblyName>
     <TargetFramework>net10.0</TargetFramework>
